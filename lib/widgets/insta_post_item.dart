@@ -20,16 +20,29 @@ class InstPostItem extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Container(
-                    width: 64.0,
-                    height: 64.0,
-                    child: CircleAvatar(
-                      radius: 100.0,
-                      child: Image.network(
-                        imageProfile,
-                      ),
-                    ),
-                  ),
+                  // Container(
+                  //   width: 64.0,
+                  //   height: 64.0,
+                  //   child: CircleAvatar(
+                  //     radius: 100.0,
+                  //     child: Image.network(
+                  //       imageProfile,fit: BoxFit.cover,
+                  //     ),
+                  //   ),
+                  // ),
+      Container(
+      clipBehavior: Clip.antiAlias,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(
+                100.0,
+              ),
+              color: Colors.white),
+          child: Image.network(
+            imageProfile,
+            fit: BoxFit.cover,
+            width: 64,
+            height: 64,
+          )),
                   SizedBox(width: 8.0,),
                   Text(name,style: TextStyle(fontWeight: FontWeight.bold,),),
                 ],
