@@ -16,12 +16,13 @@ class InstagramScreen extends StatelessWidget {
 
       body: SafeArea(
         child:
-        SingleChildScrollView(
-          child: Column(
-            children: posts.map(
-                    (e) => InstPostItem(name: e.user!.name!,imageProfile: e.user!.image! , imagePost: e.post!.image!, content: e.post!.content!,numLike:e.post!.noLikes!,),
-            ).toList(),
-          ),
+        ListView.builder(
+          itemCount: posts.length,
+          itemBuilder: (
+              BuildContext context, int index) {
+                return InstPostItem(posts[index].user!,posts[index].post!);
+          },
+
         ),
       ),
     );

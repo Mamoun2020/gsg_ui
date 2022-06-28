@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../models/post.dart';
+import '../models/user.dart';
+
 class InstPostItem extends StatelessWidget {
-  const InstPostItem({
-    Key? key, required this.name, required this.imageProfile, required this.content, required this.imagePost, required this.numLike,
-  }) : super(key: key);
-   final String name;
-   final String imageProfile;
-   final String content;
-   final String imagePost;
-   final int numLike;
+  User? user;
+  Post? post;
+  InstPostItem(this.user,this.post);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -38,13 +36,13 @@ class InstPostItem extends StatelessWidget {
               ),
               color: Colors.white),
           child: Image.network(
-            imageProfile,
+            user!.image!,
             fit: BoxFit.cover,
             width: 64,
             height: 64,
           )),
                   SizedBox(width: 8.0,),
-                  Text(name,style: TextStyle(fontWeight: FontWeight.bold,),),
+                  Text(user!.name!,style: TextStyle(fontWeight: FontWeight.bold,),),
                 ],
               ),
               Image.asset(width: 24,height: 24,'assets/icons/menu.png',),
@@ -52,7 +50,7 @@ class InstPostItem extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Image.network(imagePost,),
+            child: Image.network(post!.image!,),
           ),
           const SizedBox(height: 8.0,),
           Row(
