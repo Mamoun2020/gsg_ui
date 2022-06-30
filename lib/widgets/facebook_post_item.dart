@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
+import '../models/post.dart';
+import '../models/user.dart';
+
 class PostItem extends StatelessWidget {
-  const PostItem({
-    Key? key,
-  }) : super(key: key);
+  User? user;
+  Post? post;
+  PostItem(
+    this.user,
+    this.post,);
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +41,8 @@ class PostItem extends StatelessWidget {
                                 16.0,
                               ),
                               color: Colors.white),
-                          child: Image.asset(
-                            'assets/images/profile.jpg',
+                          child: Image.network(
+                            user!.image!,
                             fit: BoxFit.cover,
                             width: 28,
                             height: 28,
@@ -75,17 +80,17 @@ class PostItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
-                      children: const [
+                      children: [
                         Text(
-                          'Joston Al',
-                          style: TextStyle(
+                          user!.name!,
+                          style: const TextStyle(
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 4.0,
                         ),
-                        Text(
+                        const Text(
                           'updated his cover photo',
                         ),
                       ],
@@ -123,8 +128,8 @@ class PostItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               height: 160.0,
-              child: Image.asset(
-                'assets/images/cover.jpg',
+              child: Image.network(
+                post!.image!,
                 width: double.infinity,
                 height: 150.0,
                 fit: BoxFit.cover,
@@ -160,8 +165,8 @@ class PostItem extends StatelessWidget {
                   const SizedBox(
                     width: 8.0,
                   ),
-                  const Text(
-                    '400',
+                  Text(
+                    '${post!.noLikes!}',
                   ),
                 ],
               ),

@@ -4,7 +4,9 @@ class StoryItem extends StatelessWidget {
   const StoryItem({
     Key? key,
   }) : super(key: key);
-
+  /// story have list view with 100 px in height and the list of post have Expanded
+  ///
+  /// if you want to make scroll to all screen you must put all screen widget in listview then make a nested list as shrink
   @override
   Widget build(BuildContext context) {
     return Container(
