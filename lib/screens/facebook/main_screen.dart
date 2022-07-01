@@ -118,68 +118,70 @@ class MainScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              // Row(
-              //   children: [
-              //     Container(
-              //       width: 120.0,
-              //       height: 160.0,
-              //       margin: const EdgeInsetsDirectional.only(
-              //         start: 16.0,
-              //         top: 16.0,
-              //         bottom: 16.0,
-              //       ),
-              //       decoration: BoxDecoration(
-              //         borderRadius: BorderRadius.circular(
-              //           10.0,
-              //         ),
-              //       ),
-              //       clipBehavior: Clip.antiAlias,
-              //       child: Stack(
-              //         alignment: AlignmentDirectional.topStart,
-              //         children: [
-              //           Image.network(
-              //             'https://wallpaperaccess.com/full/2213424.jpg',
-              //             width: double.infinity,
-              //             height: double.infinity,
-              //             fit: BoxFit.cover,
-              //           ),
-              //           Padding(
-              //             padding: const EdgeInsets.all(8.0),
-              //             child: Column(
-              //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //               crossAxisAlignment: CrossAxisAlignment.start,
-              //               children: const [
-              //                 CircleAvatar(
-              //                   radius: 16.0,
-              //                   backgroundColor: Colors.white,
-              //                   child: Icon(
-              //                     Icons.add,
-              //                     color: Colors.blue,
-              //                     size: 16.0,
-              //                   ),
-              //                 ),
-              //                 Text(
-              //                   'Add Your Story',
-              //                   style: TextStyle(
-              //                     color: Colors.white,
-              //                     fontWeight: FontWeight.w500,
-              //                   ),
-              //                 ),
-              //               ],
-              //             ),
-              //           ),
-              //         ],
-              //       ),
-              //     ),
-              //
-              //   ],
-              // ),
+              
               Container(
                 width: double.infinity,
                 height: 160.0,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => StoryItem(),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 120.0,
+                      height: 160.0,
+                      margin: const EdgeInsetsDirectional.only(
+                        start: 16.0,
+                        bottom: 8.0,
+                        top: 8.0,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                          10.0,
+                        ),
+                      ),
+                      clipBehavior: Clip.antiAlias,
+                      child: Stack(
+                        alignment: AlignmentDirectional.topStart,
+                        children: [
+                          Image.network(
+                            'https://wallpaperaccess.com/full/2213424.jpg',
+                            width: double.infinity,
+                            height: double.infinity,
+                            fit: BoxFit.cover,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                CircleAvatar(
+                                  radius: 16.0,
+                                  backgroundColor: Colors.white,
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Colors.blue,
+                                    size: 16.0,
+                                  ),
+                                ),
+                                Text(
+                                  'Add Your Story',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) => StoryItem(),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(
