@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/drawer_widget.dart';
 
-class MyFirstUi extends StatelessWidget {
+class MyFirstUi extends StatefulWidget {
   const MyFirstUi({Key? key}) : super(key: key);
 
+  @override
+  State<MyFirstUi> createState() => _MyFirstUiState();
+}
+
+class _MyFirstUiState extends State<MyFirstUi> {
   @override
   Widget build(BuildContext context) {
     // return throw UnimplementedError();
@@ -21,7 +26,9 @@ class MyFirstUi extends StatelessWidget {
         leading: IconButton(onPressed: () {
 
         },
-        icon: Icon(Icons.menu,)),
+        icon: IconButton(icon: Icon(Icons.menu,), onPressed: () {
+          Scaffold.of(context).openDrawer();
+        },)),
         title: const Text('First App',),
         centerTitle: true,
       ),
