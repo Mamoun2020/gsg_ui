@@ -10,6 +10,7 @@ class MyFirstUi extends StatefulWidget {
 }
 
 class _MyFirstUiState extends State<MyFirstUi> {
+  final GlobalKey<ScaffoldState> _scaffoldkey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     // return throw UnimplementedError();
@@ -22,12 +23,13 @@ class _MyFirstUiState extends State<MyFirstUi> {
           body: DrawerWidget());
     }
     return Scaffold(
+      key: _scaffoldkey,
       appBar:AppBar(
         leading: IconButton(onPressed: () {
 
         },
         icon: IconButton(icon: Icon(Icons.menu,), onPressed: () {
-          Scaffold.of(context).openDrawer();
+          _scaffoldkey.currentState!.openDrawer();
         },)),
         title: const Text('First App',),
         centerTitle: true,
