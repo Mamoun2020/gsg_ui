@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gsg_ui/screens/instagram/instagram_screen.dart';
-import 'package:gsg_ui/screens/my_first_ui.dart';
+import 'package:gsg_ui/screens/drawer/my_first_ui.dart';
 import 'package:gsg_ui/screens/facebook/feed_screen.dart';
 
 import 'screens/facebook/main_screen.dart';
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+      home: MyFirstUi(),
     );
   }
 }

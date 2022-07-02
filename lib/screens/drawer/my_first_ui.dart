@@ -1,18 +1,32 @@
 import 'package:flutter/material.dart';
 
+import '../../widgets/drawer_widget.dart';
+
 class MyFirstUi extends StatelessWidget {
   const MyFirstUi({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     // return throw UnimplementedError();
+    final isLandScape = MediaQuery.of(context).orientation == Orientation.landscape;
+    if(isLandScape){
+      return Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.red,
+          ),
+          body: DrawerWidget());
+    }
     return Scaffold(
       appBar:AppBar(
-        leading: Icon(Icons.menu,),
-        title: Text('First App',),
+        leading: IconButton(onPressed: () {
+
+        },
+        icon: Icon(Icons.menu,)),
+        title: const Text('First App',),
         centerTitle: true,
       ),
 
+      drawer: DrawerWidget(),
       //Container color and size
       // Image(image: AssetImage('assets/images/ui.png') ,),
       // body: Image.asset('assets/images/ui.png'),
@@ -55,3 +69,5 @@ class MyFirstUi extends StatelessWidget {
     );
   }
 }
+
+
