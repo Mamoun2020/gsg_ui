@@ -7,18 +7,41 @@ import 'package:gsg_ui/screens/statefull/test_screen.dart';
 import 'screens/facebook/main_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
+}
+final ValueNotifier<ThemeMode> myNotifier = ValueNotifier(ThemeMode.light);
+// make call back function to theme mode
+
+class MyApp extends StatefulWidget {
+  MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+class _MyAppState extends State<MyApp> {
+  bool isDark = false;
+  changeTheme(bool value) {
+    isDark = value;
+    setState(() {});
+  }
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: TestScreen(),
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: myNotifier,
+      builder: (key,value,child){
+        return MaterialApp(
+          theme: ThemeData.light(),
+          darkTheme: ThemeData.dark(),
+          themeMode: value,
+          debugShowCheckedModeBanner: false,
+          // theme: isDark ? ThemeData.dark() : ThemeData.light(),
+          home: TestScreen(changeTheme,isDark),
+          // home: TestScreen(),
+        );
+      },
+
     );
   }
 }
